@@ -167,6 +167,8 @@ function handleClick(event) {
         if(validateStringClass(event, 'flag')){
             event.target.classList.remove("flag");
             event.target.classList.add("hidden");
+        
+            --selectedTiles;
 
             showFakeBombNum("remove");
         }else if(!validateStringClass(event, 'empty')){
@@ -178,7 +180,8 @@ function handleClick(event) {
             event.target.classList.add("flag");
             
             showFakeBombNum("add");
-        }       
+            countElements();
+        }     
     }
 }
 
@@ -195,15 +198,15 @@ function revealSquare(row, col, event){
         gameOver(row, col);
         return;
     }else{
-        countElements();
-
+        
         var bombNum = gridXY[row][col];        
-        event.target.classList.remove("hidden");
         
         if(bombNum !== 0){
+            countElements();
+            event.target.classList.remove("hidden");
             event.target.classList.add("tile_"+bombNum);
         }else{
-            event.target.classList.add("empty");
+            // event.target.classList.add("empty");
             getAroundSquares(row, col);
         }
     }
@@ -228,6 +231,7 @@ function countElements(){
     var totSelected = selectedTiles + bombsNum;
 
     if(totSelected >= totTile){
+        selectedTiles = 0;
         showAllBombs();
         stopTimer();
         smileyLikeBoss();
@@ -236,13 +240,12 @@ function countElements(){
 }
 
 function gameOver(row, col){
-    // endGame = true; *************************!!!!!!!!!!!!!!!
+    endGame = true;
     var lastSecond = document.getElementById("timer").textContent;
     smileyLoose();
     showAllBombs(row, col);
     stopTimer();
-    alert("Game over! Your score: " + lastSecond);
-    
+    alert("Game over! Your score: " + lastSecond);    
 }
 
 function showAllBombs(thisRow = null, thisCol = null){
@@ -303,6 +306,7 @@ function showTilesAround(r, c){
                         elem.classList.add("tile_"+gridXY[x][y]);
                         break;
                 }
+                countElements();
             }
         }
     }
@@ -325,25 +329,30 @@ function getTotFlagsAround(r, c){
     return totFlagsAround;
 }
 
-function getAroundSquares(row, col){
+function getAroundSquares(r, c){
+    var row = parseInt(r)
+    var col = parseInt(c)
     for (var i = row - 1; i <= row + 1; i++) {
         for (var j = col - 1; j <= col + 1; j++) {
-            //  && (i != row || j != col)
             if (i >= 0 && i < rows && j >= 0 && j < columns) {
                 var elem = document.getElementById(`${i+'-'+j}`);
                 if(elem.className.includes('hidden')){
-                    elem.classList.remove("hidden");
                     switch (gridXY[i][j]) {
                         case 0:
+                            elem.classList.remove("hidden");
                             elem.classList.add("empty");
+                            countElements();
                             getAroundSquares(i,j)
                             break;
                         case -1:
                             break;
                         default:
+                            elem.classList.remove("hidden");
                             elem.classList.add("tile_"+gridXY[i][j]);
+                            countElements();
                             break;
                     }
+            
                 }
             }
         }
@@ -404,7 +413,7 @@ function smileyDown() {
     smiley.classList.remove("face_lose");
     setSmileyClass("face_down");
     stopTimer();
-
+    selectedTiles = 0;
     endGame = false;
 }
 

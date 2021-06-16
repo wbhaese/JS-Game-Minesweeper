@@ -7,7 +7,8 @@ var columns = rows = 9;
 var bombsNum = 10;
 var gridXY = [];
 var endGame = false;
-var flagsPlanted = selectedTiles = 0;
+var flagsPlanted = 0 
+var selectedTiles = 0;
 var fistClick = false;
 var loaded;
 
@@ -413,6 +414,7 @@ function smileyDown() {
     smiley.classList.remove("face_lose");
     setSmileyClass("face_down");
     stopTimer();
+    flagsPlanted = 0;
     selectedTiles = 0;
     endGame = false;
 }

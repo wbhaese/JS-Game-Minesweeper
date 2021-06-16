@@ -18,6 +18,7 @@ Bem-vindo ao desafio do caça-minas!
 
         - Um clique com o botão esquerdo deve revelar um ladrilho, se não estiver sinalizado.
         - Um clique com o botão direito deve sinalizar um ladrilho ou desmarcar um ladrilho se já estiver sinalizado.
+
         - Um clique com o botão do meio deve revelar todos os ladrilhos ocultos, não sinalizados e adjacentes
             Isso só funciona se:
                 1. O bloco clicado é revelado.
@@ -27,9 +28,9 @@ Bem-vindo ao desafio do caça-minas!
         - Uma peça não será revelada por nenhum meio (clique do meio ou botão esquerdo) se a peça estiver sinalizada.
             
         - Um ladrilho revelado exibirá um número indicando a quantas minas ele está adjacente. Classes e imagens CSS são fornecidas para isso.
-        
+-----       
         - Se uma peça for revelada e não estiver adjacente a nenhuma mina, ela revelará todas as peças adjacentes. Isso inclui ladrilhos adjacentes com números.
-            
+-----           
         - O primeiro ladrilho clicado não deve ser uma mina, nem adjacente a uma mina. Em outras palavras, não haverá nenhum número para exibir.
 
         - Um cronômetro manterá o registro de quanto tempo o usuário está jogando. Ele começa a contar assim que o primeiro ladrilho é revelado.
@@ -38,13 +39,14 @@ Bem-vindo ao desafio do caça-minas!
         - Um contador mostrará quantas minas faltam, em relação ao número de bandeiras plantadas.
             Isso é calculado por: mines_left = (total_mines - flags_planted)
             Não é uma medida 'verdadeira' de minas restantes.
-            
+    
         - Quando um jogador está jogando ativamente e o mouse está pressionado: o smiley estará no limbo (face_limbo).
-
+ 
         Condições do jogo final
         - Quando todas as peças que não são da mina forem reveladas, o jogo termina. Um jogador não precisa marcar todas as minas para vencer.
             Você deve exibir o tempo de conclusão do usuário, bem como parabenizá-lo pela vitória.
             O smiley usará óculos escuros quando o jogador vencer.
+
         - Quando um jogador revela uma mina, o jogo acaba.
             Você deve informar ao jogador que eles perderam.
             O smiley se fingirá de morto quando o jogador perder.

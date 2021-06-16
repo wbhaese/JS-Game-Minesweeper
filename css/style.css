@@ -1,3 +1,7 @@
+body{
+    background-color: darkgray;
+}
+
 .tile {
     width: 16px;
     height: 16px;
@@ -61,7 +65,7 @@
     background-image: url("../images/face_limbo.png");
 }
 .face_lose {
-    background-image: url("../images/face_lose.png");
+background-image: url("../images/face_lose.png");
 }
 .face_win {
     background-image: url("../images/face_win.png");

@@ -1,14 +1,5 @@
 
-        Welcome to the minesweeper challenge!
-
-        In this task you need to implement minesweeper, if you are unfamiliar with the game read up on it here: https://en.wikipedia.org/wiki/Minesweeper_(video_game)
-            I also encourage you to play minesweeper if you are unfamiliar. Many online versions exist. 
-            
-        
-        Do not include any external libraries or dependencies. All JavaScript code should be located in the minesweeper.js file. 
-        
-
-        General Gameplay Requirements
+      General Gameplay Requirements
 
         - Users must be able to choose from three difficulties: Easy, Medium, and Hard.
             Easy - 9x9 grid, 10 mines.
@@ -49,10 +40,3 @@
         - When a player reveals a mine, the game is over.
             You must inform the player they have lost.
             The smiley will play dead when the player loses. 
-
-
-	- Please do not submit hidden files (.idea, .DS_Store, Thumbs.db, etc) with your solution.
-
-        *******                                                                                                             *******
-        *** Do not feel constrained to the code provided, this is simply a suggested framework to help reduce development time. ***
-        *******                                                                                                             *******

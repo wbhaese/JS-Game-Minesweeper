@@ -3,7 +3,6 @@ var time = 0;
 var difficulty;
 
 var columns = rows = 9;
-// var rows = 9;
 var bombsNum = 10;
 var gridXY = [];
 var endGame = false;
